@@ -12,13 +12,13 @@ export const content = {
         type: 'email',
         placeholder: 'correo@correo.com',
         value: 'email',
-        labelText:'Correo electronico'
+        labelText:'Correo electrónico'
        },
        { 
         type: 'text',
         placeholder: '5555555555',
         value: 'phone',
-        labelText:'Número telefonico'
+        labelText:'Número telefónico'
        },
        { 
         type: 'text',
