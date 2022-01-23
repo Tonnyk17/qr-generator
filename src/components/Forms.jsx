@@ -7,8 +7,14 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Ticket } from "./Ticket";
 
 export const Forms = () => {
-    const [userData, setUserData] = useState();
+    const [userData, setUserData] = useState({
+        name:'',
+        phone:0,
+        referal:'',
+        email:''
+    });
     const [ticketData, setTicketData] = useState();
+    const [qrData, setQrData] = useState();
 
     const handleChange = (e) => {
         setUserData({
@@ -21,7 +27,6 @@ export const Forms = () => {
     }, [userData])
 
     const handleClick = () => {
-        console.log(ticketData)
         const qr = createTicket(ticketData)
         qr.then(data => console.log(data))
     }
@@ -41,7 +46,11 @@ export const Forms = () => {
                         />
                     ))
                 }
-                 <Button buttonText={'Generar boleto'} onClick={handleClick}/>
+                
+                 <Button 
+                    buttonText={'Generar boleto'} 
+                    onClick={handleClick}
+                />
                
             </form>
         </>

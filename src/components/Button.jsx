@@ -4,6 +4,7 @@ import '../styles/Button.css';
 import { Ticket } from "./Ticket";
 
 export const Button = ({buttonText,onClick}) => {
+
     return (
         <>
             <PDFDownloadLink 
