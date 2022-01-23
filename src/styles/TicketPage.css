@@ -1,0 +1,30 @@
+.main-ticket-container{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ticket-modal-container{
+    width: 80%;
+    max-width: 600px;
+    height: 60%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ticket-message{
+    width: 90%;
+    color: wheat;
+    text-align: center;
+}
+.download-button-container{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    text-decoration: none;
+}

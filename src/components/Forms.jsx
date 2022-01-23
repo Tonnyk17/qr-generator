@@ -3,37 +3,47 @@ import {Input} from './Input';
 import '../styles/Forms.css';
 import { Button } from "./Button";
 import { content, createTicket } from "../functions";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import { Ticket } from "./Ticket";
+import { Icon } from './Icon';
+import { TicketPage } from "./TicketPage";
+import { v4 as uuidv4 } from 'uuid';
 
 export const Forms = () => {
     const [userData, setUserData] = useState({
         name:'',
-        phone:0,
-        referal:'',
-        email:''
+        email:'',
+        phone:'',
+        referal:''
     });
     const [ticketData, setTicketData] = useState();
+    const [isCreated, setIsCreated] = useState(false);
     const [qrData, setQrData] = useState();
-
     const handleChange = (e) => {
         setUserData({
             ...userData,
             [e.target.name]: e.target.value
         })
     }
+
     useEffect(() => {
         setTicketData(userData);
     }, [userData])
 
-    const handleClick = () => {
-        const qr = createTicket(ticketData)
-        qr.then(data => console.log(data))
+    const handleClick = async() => {
+        const uuid = uuidv4()
+        const qr = await createTicket(uuid)
+        setQrData(qr);
+        setIsCreated(true)
+        
     }
 
     return(
         <>
-            <form className="form-component">
+            {
+                isCreated && qrData ? 
+                <TicketPage userData={userData} qrData={qrData}/>
+                :
+                <form className="form-component">
+                <Icon/>
                 {
                     content.inputs.map((item, i)=> (
                         <Input 
@@ -47,12 +57,13 @@ export const Forms = () => {
                     ))
                 }
                 
-                 <Button 
+                <Button 
                     buttonText={'Generar boleto'} 
                     onClick={handleClick}
                 />
                
             </form>
+            }
         </>
     )
 }

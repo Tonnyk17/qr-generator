@@ -15,7 +15,7 @@ export const content = {
         labelText:'Correo electronico'
        },
        { 
-        type: 'number',
+        type: 'text',
         placeholder: '5555555555',
         value: 'phone',
         labelText:'Número telefonico'
@@ -29,16 +29,6 @@ export const content = {
     ]
 }
 
-export const createTicket = async (data) => {
-    var segs = [
-        { data: data.name},
-        { data: data.email},
-        { data: data.phone},
-        { data: data.referal},
-      ]
-    try {
-        return QrCode.toDataURL(segs)
-    } catch (error) {
-        console.error(error)
-    }
+export const createTicket = async(data) => {
+        return  await QrCode.toDataURL(data)      
 }

@@ -1,17 +1,13 @@
 import React from "react";
-import './App.css';
-import { Forms } from "./components/Forms";
-import { Icon } from "./components/Icon";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { MainContainer } from './pages/MainContainer.jsx';
 
-export const MainContainer = () => {
-    return(
-        <>
-            <div className="main-container">
-                <div className="form-container">
-                    <Icon/>
-                    <Forms/>
-                </div>
-            </div>
-        </>
+export const App = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<MainContainer/>}/>
+            </Routes>
+        </BrowserRouter>
     )
-}
+};
