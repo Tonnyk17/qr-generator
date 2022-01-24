@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import QrReader from 'react-qr-reader';
 import '../styles/Reader.css';
-import { db } from "../firebase";
 import { getDatabase, ref, child, get} from "firebase/database";
 
 export const Reader = () => {
@@ -17,7 +16,7 @@ export const Reader = () => {
                     setData(snapshot.val())
                 } else {
                     setIsverified('No se encontró al invitado')
-                    console.log("No data available");
+                    setData('')
                 }
             })
             .catch((error) => {
@@ -35,27 +34,29 @@ export const Reader = () => {
       }
     return(
         <>
+           <div className="container">
             <div className="reader-container">
-                <QrReader
-                    delay={300}
-                    onError={handleErrorWebCam}
-                    onScan={handleScanWebCam}
-                    className="reader"
-                />
-                <div className="reader-message-container">
-                    <h3 className="reader-message">{isVerified}</h3>
-                    {
-                        data ? 
-                        <div>
-                            <p className="user-name">{data.username}</p>
-                            <p className="user-phone">{data.phone}</p>
-                            <p className="user-email">{data.email}</p>
-                        </div>
-                        :
-                        null
-                    }
+                    <QrReader
+                        delay={300}
+                        onError={handleErrorWebCam}
+                        onScan={handleScanWebCam}
+                        className="reader"
+                    />
+                    <div className="reader-message-container">
+                        <h3 className="reader-message">{isVerified}</h3>
+                        {
+                            data ? 
+                            <div>
+                                <p className="user-name">{data.username}</p>
+                                <p className="user-phone">{data.phone}</p>
+                                <p className="user-email">{data.email}</p>
+                            </div>
+                            :
+                            null
+                        }
+                    </div>
                 </div>
-            </div>
+           </div>
             
         </>
     )
