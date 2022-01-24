@@ -7,7 +7,7 @@ import { Icon } from './Icon';
 import { TicketPage } from "./TicketPage";
 import { v4 as uuidv4 } from 'uuid';
 import { db } from "../firebase";
-import { ref, set, get,child, getDatabase,push} from "firebase/database";
+import { ref, set, get,child, getDatabase} from "firebase/database";
 
 export const Forms = () => {
     const [ticketData, setTicketData] = useState();
