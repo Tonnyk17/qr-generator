@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import QrReader from 'react-qr-reader';
 import '../styles/Reader.css';
-import { getDatabase, ref, child, get} from "firebase/database";
+import { getDatabase, ref, child, get, update} from "firebase/database";
 
 export const Reader = () => {
     const [data,setData] = useState();
@@ -9,9 +9,11 @@ export const Reader = () => {
 
     const searchData = (id) => {
         const dbRef = ref(getDatabase());
+        const updates = {};
+        updates[`users/${id}/isCheck`] = true;
         get(child(dbRef, `users/${id}`))
             .then((snapshot) => {
-                if (snapshot.exists()) {
+                if (snapshot.exists) {
                     setIsverified('Invitado verificado')
                     setData(snapshot.val())
                 } else {
@@ -22,6 +24,7 @@ export const Reader = () => {
             .catch((error) => {
                 console.error(error);
             });
+        update(dbRef, updates)
     }
 
     const handleScanWebCam = (result) => {

@@ -5,3 +5,15 @@
     margin: 20px 5px;
     grid-gap: 30px;
 }
+.message-limited-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.limited-message{
+    width: 80%;
+    text-align: center;
+    color: wheat;
+}
