@@ -7,6 +7,7 @@
 }
 
 .panel-container{
+    color: wheat;
     width: 90%;
     box-shadow: 0 0 4px 4px rgba(165, 119, 1,0.5);
     border: 1px solid rgba(165, 119, 1,0.5);
