@@ -40,18 +40,18 @@
     border: 1px solid rgba(165, 119, 1,0.5);
     font-size: 10px;
 }
-.info,.info-phone,.info-id{
+.info,.info-phone,.info-email{
     display: none;
 }
 
 
-@media screen and (min-width:700px) {
-    .info-phone,.info-id{
+@media screen and (min-width:500px) {
+    .info-phone,.info-email{
         display: inline;
     }
     .titles-container,.data-container{
-        grid-template-columns: repeat(2,1fr);
-        font-size: 16px;
+        grid-template-columns: repeat(4,1fr);
+        font-size: 11px;
     }
 }
 
@@ -61,5 +61,6 @@
     }
     .titles-container,.data-container{
         grid-template-columns: repeat(5,1fr);
+        font-size: 16px;
     }
 }

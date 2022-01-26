@@ -28,8 +28,8 @@ export const Panel = () => {
                         <div className="titles-container">
                         <h4 className="info-verified">Verificado</h4>
                             <h4 className="title">Nombre</h4>
-                            <h4 className="info">Telefono</h4>
-                            <h4 className="info">Correo</h4>
+                            <h4 className="info-phone">Telefono</h4>
+                            <h4 className="info-email">Correo</h4>
                             <h4 className="info">Referencia</h4>
                             
                         </div>
@@ -38,8 +38,8 @@ export const Panel = () => {
                             <div className="data-container" key={i}>
                                 <h4 className="info-verified">{item.isCheck ? 'Si' : 'No'}</h4>
                                 <h4 className="info-name">{item.username}</h4>
-                                <h4 className="info">{item.phone}</h4>
-                                <h4 className="info">{item.email}</h4>
+                                <h4 className="info-phone">{item.phone}</h4>
+                                <h4 className="info-email">{item.email}</h4>
                                 <h4 className="info">{item.referal}</h4>
                             </div>
                            ))
