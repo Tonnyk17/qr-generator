@@ -19,7 +19,7 @@ export const Forms = () => {
     useEffect(() => {
         const dbRef = ref(getDatabase());
         get(child(dbRef, 'users/')).then(async(snapshot) => {
-            if(snapshot.size > 150){  
+            if(snapshot.size > 152){  
                 setIsLimited(true);  
             }
         })
@@ -53,16 +53,20 @@ export const Forms = () => {
     }, [userData])
 
     const handleClick = async() => {
-
-        const qr = await createTicket(uuid)
-                setQrData(qr);
-                setIsCreated(true)
-                writeUserData(uuid,
-                            ticketData.name,
-                            ticketData.email,
-                            ticketData.phone,
-                            ticketData.referal,
-                            false)
+        if(ticketData.name && ticketData.email && ticketData.phone){
+            const qr = await createTicket(uuid)
+            setQrData(qr);
+            setIsCreated(true)
+            writeUserData(uuid,
+                        ticketData.name,
+                        ticketData.email,
+                        ticketData.phone,
+                        ticketData.referal,
+                        false)
+        }
+        else{
+            alert('Falta información en el formulario')
+        }
     }
 
     return(
