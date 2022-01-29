@@ -19,7 +19,7 @@ export const Forms = () => {
     useEffect(() => {
         const dbRef = ref(getDatabase());
         get(child(dbRef, 'users/')).then(async(snapshot) => {
-            if(snapshot.size > 152){  
+            if(snapshot.size > 182){  
                 setIsLimited(true);  
             }
         })
