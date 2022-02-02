@@ -11,6 +11,23 @@
     margin-bottom: 40px;
     color: wheat;
 }
+.cleaner-button{
+    margin: 30px auto;
+    width: 200px;
+    height: 30px;
+    color: wheat;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid wheat;
+    background-color: transparent;
+}
+
+.cleaner-button:hover{
+    color: white;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(165, 119, 1,0.5);
+}
 
 .panel-container{
     color: wheat;
@@ -60,7 +77,6 @@
         display: inline;
     }
     .titles-container,.data-container{
-        grid-template-columns: repeat(5,1fr);
         font-size: 16px;
     }
 }

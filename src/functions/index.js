@@ -9,13 +9,7 @@ export const content = {
         labelText:'Nombre completo'
        },
        { 
-        type: 'email',
-        placeholder: 'correo@correo.com',
-        value: 'email',
-        labelText:'Correo electrónico'
-       },
-       { 
-        type: 'text',
+        type: 'phone',
         placeholder: '5555555555',
         value: 'phone',
         labelText:'Número telefónico'

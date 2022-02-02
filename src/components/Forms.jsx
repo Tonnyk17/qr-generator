@@ -16,20 +16,19 @@ export const Forms = () => {
     const [qrData, setQrData] = useState();
     const uuid = uuidv4()
  
-    useEffect(() => {
+   /* useEffect(() => {
         const dbRef = ref(getDatabase());
         get(child(dbRef, 'users/')).then(async(snapshot) => {
-            if(snapshot.size > 182){  
+            if(snapshot.size > 302){  
                 setIsLimited(true);  
             }
         })
-    },[])
+    },[])*/
 
-    const writeUserData =(userId, name, email, phone, referal, isCheck) => {
+    const writeUserData =(userId, name, phone, referal, isCheck) => {
         set(ref(db, `users/${userId}`),{
           id:userId,
           username: name,
-          email: email,
           phone: phone,
           referal: referal,
           isCheck: isCheck
@@ -37,7 +36,6 @@ export const Forms = () => {
       }
     const [userData, setUserData] = useState({
         name:'',
-        email:'',
         phone:'',
         referal:''
     });
@@ -53,13 +51,12 @@ export const Forms = () => {
     }, [userData])
 
     const handleClick = async() => {
-        if(ticketData.name && ticketData.email && ticketData.phone){
+        if(ticketData.name && ticketData.phone){
             const qr = await createTicket(uuid)
             setQrData(qr);
             setIsCreated(true)
             writeUserData(uuid,
                         ticketData.name,
-                        ticketData.email,
                         ticketData.phone,
                         ticketData.referal,
                         false)
