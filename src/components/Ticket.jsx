@@ -1,5 +1,6 @@
 import React from "react";
 import { Document, Page, View, Image, StyleSheet } from "@react-pdf/renderer";
+import logo from '../assets/xifra.jpeg';
 
 export const Ticket = ({userData, qrData}) => {
     const styles = StyleSheet.create({
@@ -33,6 +34,9 @@ export const Ticket = ({userData, qrData}) => {
     return(
         <Document>
         <Page size="A4" style={styles.page}>
+          <View style={styles.ticketContainer}>
+                  <Image src={logo} style={styles.qrImage}/>
+            </View>
             <View style={styles.ticketContainer}>
                   <Image src={qrData} style={styles.qrImage}/>
             </View>
